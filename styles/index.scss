@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: "Spartan";
+}
+
+@import "./variables";
+@import "./mobile";
+@import "./desktop";
