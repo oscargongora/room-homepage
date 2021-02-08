@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import data from "./data";
@@ -6,6 +6,23 @@ import data from "./data";
 const index = () => {
   const { width, height } = useWindowDimensions();
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const handleKeyPress = (ev) => {
+      if (ev.key === "ArrowLeft") {
+        setCurrentSlide((currentSlide + data.length - 1) % data.length);
+      }
+      if (ev.key === "ArrowRight") {
+        setCurrentSlide((currentSlide + 1) % data.length);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  });
+
   const handlePrevControlClick = () => {
     setCurrentSlide((currentSlide + data.length - 1) % data.length);
   };

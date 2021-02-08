@@ -1,3 +1,81 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  padding: 48px 0;
+  align-items: center;
+  transition: all ease 0.4s;
+  .show-nav {
+    margin: 0 0 0 24px;
+  }
+  .hide-nav {
+    display: none;
+    margin: 0 0 0 26px;
+  }
+  .logo {
+    width: calc(100% - 88px);
+    display: flex;
+    justify-content: center;
+    height: 14px;
+    img {
+      height: 100%;
+    }
+  }
+  nav {
+    display: none;
+    ul {
+      list-style: none;
+      display: flex;
+      li {
+        margin: 0 34px 0 0;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: lowercase;
+      }
+    }
+  }
+  .backdrop {
+    display: none;
+  }
+  &.collapse {
+    background-color: $white !important;
+    justify-content: space-between;
+    .show-nav {
+      display: none;
+    }
+    .hide-nav {
+      display: initial;
+    }
+    .logo {
+      display: none;
+    }
+    nav {
+      display: initial;
+      ul {
+        li {
+        }
+      }
+    }
+    .backdrop {
+      position: fixed;
+      top: 116.8px;
+      left: 0;
+      display: initial;
+      height: calc(100% - 116.8px);
+      width: 100%;
+      z-index: 1;
+      background-color: rgba($color: #000000, $alpha: 0.7);
+    }
+  }
+  &.scrolled {
+    background-color: $black;
+    box-shadow: 0 4px 12px rgba($color: #000000, $alpha: 0.2);
+  }
+}
+
 .slider {
   width: 100%;
   .slider-image-container {

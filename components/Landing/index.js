@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Header from "../Header";
 import Slider from "../Slider";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
@@ -6,6 +7,7 @@ const index = () => {
   const { width, height } = useWindowDimensions();
   return (
     <div>
+      <Header />
       <Slider></Slider>
       <div className="about">
         <Image
